@@ -23,7 +23,7 @@ Project also has Fake Data script that allow us to create Fake User and Fake Boo
    git clone https://github.com/your-username/your-django-project.git
    cd your-django-project
 
-2. ** Project Requirements::**
+2. **Project Requirements:**
 
 To install the project dependencies, use the following command:
 

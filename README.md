@@ -3,7 +3,7 @@
 ## Overview
 
 This Django project provides APIs for managing books, book details, authors, and author details. Additionally, it includes user authentication and authorization for secure access to update and delete operations based on user permissions.
-Project also has Fake Data script that allow us to create Fake User and Faker Books.
+Project also has Fake Data script that allow us to create Fake User and Fake Books.
 
 ## Features
 

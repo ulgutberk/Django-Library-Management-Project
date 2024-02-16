@@ -1,15 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
 from .form import CreateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
 def userLogin(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated: # Checking User is Login in or not
         return redirect('main')
     else:
         if request.method == 'POST':

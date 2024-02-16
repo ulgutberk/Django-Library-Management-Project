@@ -4,6 +4,7 @@ from datetime import datetime, date
 from django.utils.timesince import timesince
 
 
+
 class BookSerializer(serializers.ModelSerializer):
     time_since_pub = serializers.SerializerMethodField()
 

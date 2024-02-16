@@ -4,12 +4,15 @@ from .serializers import BookSerializer, AuthorsSerializer
 # Concrete Views
 from rest_framework import generics
 from rest_framework.generics import get_object_or_404
+
+#Permissions
 from rest_framework import permissions
 # We could add permissions with this library
-from .permissions import IsAdminUserOrReadOnly
-# Add new Custom Permission
-from .pagination import SmallPagination, LargePagination
+from .permissions import IsAdminUserOrReadOnly  # Add new Custom Permission
+
 # Pagination Settings
+from .pagination import SmallPagination, LargePagination
+
 
 # Generic Views
 from rest_framework.generics import GenericAPIView, get_object_or_404
@@ -31,6 +34,7 @@ from rest_framework.response import Response
 
 # Concrete Views
 # -------------------------------------------------------------
+
 class AuthorsListCreateAPIView(generics.ListCreateAPIView):
     queryset = Authors.objects.all().order_by('id')
     serializer_class = AuthorsSerializer
@@ -45,7 +49,7 @@ class AuthorsDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class BooksListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Books.objects.all().order_by('id') # With order_by(id) --> Listed in ascending order by id number
+    queryset = Books.objects.all().order_by('id')  # With order_by(id) --> Listed in ascending order by id number
     serializer_class = BookSerializer
     permission_classes = [IsAdminUserOrReadOnly]
     pagination_class = LargePagination

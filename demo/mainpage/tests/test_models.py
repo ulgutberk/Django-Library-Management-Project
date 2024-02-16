@@ -40,4 +40,12 @@ class BooksModelTest(TestCase):
             pages=200,
             publish_date='2024-02-15'
         )
-        self.assertEqual(str(book), 'Test Book')
+        self.assertEqual(str(book.title), 'Test Book')
+        self.assertEqual(str(book.author), 'Test Name Test Surname')
+        self.assertEqual(str(book.publisher), 'Test Publisher')
+        self.assertEqual(book.pages, 200)
+        self.assertEqual(book.stock, 1)
+        self.assertEqual(book.available, True)
+        self.assertEqual(str(book.publish_date), '2024-02-15')
+
+

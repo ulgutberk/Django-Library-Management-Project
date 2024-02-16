@@ -17,34 +17,38 @@ from mainpage.models import Authors, Books
 from django.db.models import Q
 from pprint import pprint
 
-# Faker library imported
+# /////////////////////////////////////////////////////
+
 
 fake = Faker('en_US')  # Define Faker base lang.
 
 
-def create_user():
-    # Create Fake User
-    f_name = fake.first_name()
-    l_name = fake.last_name()
+# Fake User Creator
+def create_user(max_user=5):
+    counter = 0
+    while counter < max_user:
+        # Create Fake User
+        f_name = fake.first_name()
+        l_name = fake.last_name()
 
-    u_name = f'{f_name.title()}{l_name.lower()}'
-    f_email = f'{u_name}@{fake.domain_name()}'
+        u_name = f'{f_name.title()}{l_name.lower()}'
+        f_email = f'{u_name}@{fake.domain_name()}'
 
-    user_check = User.objects.filter(username=u_name)
-    while user_check.exists():
-        u_name = u_name + str(random.randint(1, 100))
         user_check = User.objects.filter(username=u_name)
+        while user_check.exists():
+            u_name = u_name + str(random.randint(1, 100))
+            user_check = User.objects.filter(username=u_name)
 
-    user = User(
-        username=u_name,
-        first_name=f_name,
-        last_name=l_name,
-        email=f_email,
-    )
-
-    user.set_password('testpass')
-    user.save()
-    print(f'Created user: {u_name}, Email: {f_email}')
+        user = User(
+            username=u_name,
+            first_name=f_name,
+            last_name=l_name,
+            email=f_email,
+        )
+        user.set_password('testpass')
+        user.save()
+        counter += 1
+        print(f'Created user: {u_name}, Email: {f_email}')
 
 
 # python .\manage.py shell_plus
@@ -122,7 +126,8 @@ def book_add(subject, max_books=10):
         }
         # Create and save the book
 
-        book_object = Books.objects.filter(Q(title=book_data.get('title')) & Q(publisher=book_data.get('publisher'))).first()
+        book_object = Books.objects.filter(
+            Q(title=book_data.get('title')) & Q(publisher=book_data.get('publisher'))).first()
         if book_object:
             print('Existing Book')
         else:

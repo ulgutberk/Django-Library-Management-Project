@@ -7,6 +7,3 @@ def main(request):
     return render(request, 'main.html')
 
 
-@login_required(login_url='login')
-def taskstatus(request):
-    return render(request, 'taskstatus.html')

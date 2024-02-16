@@ -76,6 +76,7 @@ TEMPLATES = [
 #         'rest_framework.permissions.IsAdminUser',
 #     )
 # }
+#//////////////////////////////////////////////////
 # Rest_Framework Global Pagination Policy
 # REST_FRAMEWORK = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -138,3 +139,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

@@ -20,8 +20,8 @@ Project also has Fake Data script that allow us to create Fake User and Fake Boo
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-django-project.git
-   cd your-django-project
+   git clone https://codehub-dg-g.huawei.com/b84347451/DjangoDemo.git
+   
 
 2. **Project Requirements:**
 

@@ -4,6 +4,7 @@ from datetime import datetime, date
 from django.utils.timesince import timesince
 import re
 
+
 class BookSerializer(serializers.ModelSerializer):
     time_since_pub = serializers.SerializerMethodField()
 
@@ -61,9 +62,9 @@ class AuthorsSerializer(serializers.ModelSerializer):
     def validate(self, data):
         authors_name = data.get('name')
         authors_surname = data.get('surname')
-        CHECK_RE = re.compile('[a-zA-Z0-9_-]+$')
+        CHECK_RE = re.compile('[a-zA-Z0-9_-]+$')  # Return a pattern object
 
         if CHECK_RE.match(authors_name) and CHECK_RE.match(authors_surname):
             return data
         else:
-            raise serializers.ValidationError('Name or Surname cannot contain unicode characters')
+            raise serializers.ValidationError('Name and Surname must be only letter')

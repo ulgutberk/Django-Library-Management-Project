@@ -21,6 +21,8 @@ Project also has Fake Data script that allow us to create Fake User and Fake Boo
 
    ```bash
    git clone https://codehub-dg-g.huawei.com/b84347451/DjangoDemo.git
+
+   
    
 
 2. **Project Requirements:**
@@ -29,3 +31,14 @@ To install the project dependencies, use the following command:
 
 ```bash
 pip install -r requirements.txt
+
+cd demo --> Go project file
+ 
+python manage.py createsuperuser --> Create superuser for admin panel.
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+
+
